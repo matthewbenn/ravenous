@@ -17,19 +17,19 @@ const business = {
 };
 
 const businesses = [
-  this.business,
-  this.business,
-  this.business,
-  this.business,
-  this.business,
-  this.business,
+  business,
+  business,
+  business,
+  business,
+  business,
+  business,
 ];
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>ravenous</h1>
+        <h1>Ravenous!</h1>
           <SearchBar />
           <BusinessList businesses={businesses} />
       </div>

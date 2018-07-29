@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './BusinessList.css';
-import Business from '../Business/Business';
+import Business from '../Business/Business.js';
 
 class BusinessList extends React.Component {
   render() {
@@ -9,8 +8,8 @@ class BusinessList extends React.Component {
       <div className="BusinessList">
         {
           this.props.businesses.map(business => {
-            return <Business business={business} />;
-                })
+            return <Business business={business} />
+          })
         }
       </div>
     );
