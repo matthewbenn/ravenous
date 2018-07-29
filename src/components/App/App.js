@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import logo from './logo.svg';
 import './App.css';
-import '../components/SearchBar/SearchBar.js'
-import '../components/BusinessList/BusinessList.js';
-import '../components/Business/Business.js'
+import SearchBar from '../SearchBar/SearchBar.js'
+import BusinessList from '../BusinessList/BusinessList.js';
 
 const business = {
   imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
@@ -18,13 +16,22 @@ const business = {
   reviewCount: 90
 };
 
-class App extends Component {
+const businesses = [
+  this.business,
+  this.business,
+  this.business,
+  this.business,
+  this.business,
+  this.business,
+];
+
+class App extends React.Component {
   render() {
     return (
       <div className="App">
         <h1>ravenous</h1>
           <SearchBar />
-          <BusinessList />
+          <BusinessList businesses={businesses} />
       </div>
     );
   }
