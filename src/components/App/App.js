@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './App.css';
 import SearchBar from '../SearchBar/SearchBar.js'
 import BusinessList from '../BusinessList/BusinessList.js';
@@ -26,11 +25,15 @@ const businesses = [
 ];
 
 class App extends React.Component {
+  searchYelp(term,location,sortBy) {
+    console.log(`Searching Yelp with ${term}, ${location}, ${sortBy}`);
+  }
+
   render() {
     return (
       <div className="App">
         <h1>Ravenous!</h1>
-          <SearchBar />
+          <SearchBar searchYelp={this.searchYelp} />
           <BusinessList businesses={businesses} />
       </div>
     );
