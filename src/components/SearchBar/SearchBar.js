@@ -18,6 +18,7 @@ class SearchBar extends React.Component {
   this.handleTermChange = this.handleTermChange.bind(this);
   this.handleLocationChange = this.handleLocationChange.bind(this);
   this.handleSearch = this.handleSearch.bind(this);
+  this.handleEnter = this.handleEnter.bind(this);
 }
 
   getSortByClass(sortByOption) {
@@ -46,10 +47,15 @@ class SearchBar extends React.Component {
     event.preventDefault();
   }
 
+  handleEnter(event) {
+    if (event.keyCode === 13)
+    this.handleSearch(event);
+  }
+
   renderSortByOptions() {
     return Object.keys(this.sortByOptions).map(sortByOption => {
       let sortByOptionValue = this.sortByOptions[sortByOption];
-    return <li onClick={this.handleSortByChange.bind(this,sortByOptionValue)} className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue}>
+    return <li onClick={this.handleSortByChange.bind(this.sortByOptionValue)} className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue}>
               {sortByOption}
               </li>
               /* I was able to debug this section and get it working,
@@ -66,8 +72,8 @@ class SearchBar extends React.Component {
           </ul>
         </div>
       <div className="SearchBar-fields">
-        <input onChange={this.handleTermChange} placeholder="Search Businesses" />
-        <input onChange={this.handleLocationChange} placeholder="Where?" />
+        <input onChange={this.handleTermChange} onKeyDown={this.handleEnter} placeholder="Search Businesses" />
+        <input onChange={this.handleLocationChange} onKeyDown={this.handleEnter} placeholder="Where?" />
       </div>
     <div className="SearchBar-submit">
       <a onClick={this.handleSearch}>Let's Go</a>
